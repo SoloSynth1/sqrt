@@ -8,15 +8,21 @@ Options:
 --n=<n>    Number for which the square root should be calculated
 """
 
-from docopt import docopt
 import math
+from docopt import docopt
 
 opt = docopt(__doc__)
 
+
 def main(number):
-  number = int(number)
-  print(math.sqrt(number))
-    
+    """
+    Calculates and prints the square root of a number.
+    """
+    if number < 0:
+        raise Exception("n should not a positive number")
+    number = int(number)
+    print(math.sqrt(number))
+
 
 if __name__ == "__main__":
-  main(opt["--n"])
+    main(opt["--n"])
